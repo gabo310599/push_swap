@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/08 17:49:41 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/08 21:06:37 by gojeda           ###   ########.fr       */
+/*   Created: 2025/04/14 12:04:21 by gojeda            #+#    #+#             */
+/*   Updated: 2025/04/14 12:04:29 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int main(void)
+t_list	*ft_lstnew(void *content)
 {
-    ft_printf("HOLA MUNDO\n!");
-    return (0);
+	t_list	*new;
+
+	new = (t_list *) malloc(sizeof(*new));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

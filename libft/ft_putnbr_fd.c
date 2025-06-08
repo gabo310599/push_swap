@@ -1,19 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/08 17:49:41 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/08 21:06:37 by gojeda           ###   ########.fr       */
+/*   Created: 2025/04/12 15:32:08 by gojeda            #+#    #+#             */
+/*   Updated: 2025/04/12 15:32:10 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int main(void)
+void	ft_putnbr_fd(int n, int fd)
 {
-    ft_printf("HOLA MUNDO\n!");
-    return (0);
+	long	nbr;
+	char	c;
+
+	nbr = n;
+	if (nbr < 0)
+	{
+		write(fd, "-", 1);
+		nbr = -nbr;
+	}
+	if (nbr <= 9)
+	{
+		c = nbr + '0';
+		write(fd, &c, 1);
+	}
+	else
+	{
+		ft_putnbr_fd(nbr / 10, fd);
+		c = (nbr % 10) + '0';
+		write(fd, &c, 1);
+	}
 }

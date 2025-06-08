@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/08 17:49:41 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/08 21:06:37 by gojeda           ###   ########.fr       */
+/*   Created: 2025/04/12 13:51:53 by gojeda            #+#    #+#             */
+/*   Updated: 2025/04/12 13:51:56 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int main(void)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    ft_printf("HOLA MUNDO\n!");
-    return (0);
+	unsigned int	i;
+	char			*str;
+
+	if (!s || !f)
+		return (NULL);
+	str = (char *) malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }

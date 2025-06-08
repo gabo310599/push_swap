@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/08 17:49:41 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/08 21:06:37 by gojeda           ###   ########.fr       */
+/*   Created: 2025/04/14 16:18:33 by gojeda            #+#    #+#             */
+/*   Updated: 2025/04/14 16:18:36 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int main(void)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-    ft_printf("HOLA MUNDO\n!");
-    return (0);
+	if (lst && del)
+	{
+		del(lst->content);
+		free(lst);
+	}
 }

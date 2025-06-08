@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/08 17:49:41 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/08 21:06:37 by gojeda           ###   ########.fr       */
+/*   Created: 2025/04/14 16:56:00 by gojeda            #+#    #+#             */
+/*   Updated: 2025/04/14 16:56:01 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int main(void)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-    ft_printf("HOLA MUNDO\n!");
-    return (0);
+	t_list	*aux;
+
+	if (lst && del)
+	{
+		while (*lst)
+		{
+			del((*lst)->content);
+			aux = (*lst)->next;
+			free(*lst);
+			*lst = aux;
+		}
+		*lst = NULL;
+	}
 }

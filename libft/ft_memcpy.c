@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/08 17:49:41 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/08 21:06:37 by gojeda           ###   ########.fr       */
+/*   Created: 2025/04/08 14:30:49 by gojeda            #+#    #+#             */
+/*   Updated: 2025/04/08 14:30:52 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-int main(void)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-    ft_printf("HOLA MUNDO\n!");
-    return (0);
+	unsigned char	*ptr_dest;
+	unsigned char	*ptr_src;
+	size_t			i;
+
+	if (n == 0 || dest == src)
+		return (dest);
+	i = 0;
+	ptr_dest = (unsigned char *) dest;
+	ptr_src = (unsigned char *) src;
+	while (i < n)
+	{
+		ptr_dest[i] = ptr_src[i];
+		i++;
+	}
+	return (dest);
 }
