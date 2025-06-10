@@ -6,13 +6,14 @@
 #    By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/11 16:33:59 by gojeda            #+#    #+#              #
-#    Updated: 2025/06/09 16:43:43 by gojeda           ###   ########.fr        #
+#    Updated: 2025/06/10 15:32:43 by gojeda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = cc
 SRC = ft_atoi.c \
+		ft_atol.c \
 		ft_bzero.c \
 		ft_calloc.c \
 		ft_isalnum.c \

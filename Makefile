@@ -38,7 +38,7 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	@$(MAKE) -C libft fclean > /dev/null
-	@echo "🧼 Todo limpio: binarios, Libft."
+	@echo "🧼 Todo limpio."
 
 re: fclean all
 

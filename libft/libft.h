@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 13:04:58 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/08 21:14:30 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/10 15:50:14 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@
 # endif
 /**************************************************************************/
 
-/*****************stdllibmlxlibmlxib**************************************************/
+/**************************************************************************/
 //Funciones obligatorias
 int		ft_atoi(const char *nptr);
+long	ft_atol(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 int		ft_isalnum(int c);
