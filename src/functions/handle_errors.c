@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 16:39:13 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/10 17:17:27 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/11 16:12:09 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ void	free_stack(t_stack_node **stack)
 void	free_errors(t_stack_node **a)
 {
 	free_stack(a);
-	fr_printf("Error\n");
+	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }

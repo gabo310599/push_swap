@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 17:49:41 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/10 15:50:46 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/11 19:10:22 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,11 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
+	init_stack_a(&a, argv + 1);
+	if (!is_sorted(a))
+	{
+		
+	}
+	free_stack(&a);
 	return (0);
 }
