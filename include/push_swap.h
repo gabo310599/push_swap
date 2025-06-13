@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 12:46:46 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/11 22:05:18 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/13 22:30:03 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,17 @@ int				is_duplicate(t_stack_node *a, int n);
 /***************************************************************************/
 t_stack_node	*find_last_node(t_stack_node *stack);
 bool			is_sorted(t_stack_node *stack);
+t_stack_node	*find_biggest_node(t_stack_node *stack);
+size_t			stack_len(t_stack_node *stack);
 
 /***************************************************************************/
 //Funciones inicializar de stacks
 /***************************************************************************/
 void			init_stack_a(t_stack_node **a, char **argv);
+void			set_node_index(t_stack_node *stack);
+void			set_cheapest_node(t_stack_node *stack);
+void			init_nodes_a(t_stack_node *a, t_stack_node *b);
+t_stack_node	*get_cheapest_node(t_stack_node *stack);
 
 /***************************************************************************/
 //Funciones para los movimientos de stacks
@@ -65,4 +71,14 @@ void			rr(t_stack_node **a, t_stack_node **b, bool msg);
 void			rra(t_stack_node **a, bool msg);
 void			rrb(t_stack_node **b, bool msg);
 void			rrr(t_stack_node **a, t_stack_node **b, bool msg);
+
+/***************************************************************************/
+//Funciones para organizar los stacks
+/***************************************************************************/
+void			rotate_both(t_stack_node **a, t_stack_node **b,
+					t_stack_node *cheapest);
+void			rev_rotate_both(t_stack_node **a, t_stack_node **b,
+					t_stack_node *cheapest);
+void			prep_for_push(t_stack_node **stack, t_stack_node *top_node,
+					char name);
 #endif

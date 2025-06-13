@@ -6,11 +6,24 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 15:38:38 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/11 21:49:36 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/13 22:27:44 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+t_stack_node	*get_cheapest_node(t_stack_node *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
+}
 
 static void	append_node(t_stack_node **stack, int n)
 {
@@ -36,6 +49,27 @@ static void	append_node(t_stack_node **stack, int n)
 		last_node = find_last_node(*stack);
 		last_node->next = node;
 		node->prev = last_node;
+	}
+}
+
+void	prep_for_push(t_stack_node **stack, t_stack_node *top_node, char name)
+{
+	while (*stack != top_node)
+	{
+		if (name == 'a')
+		{
+			if (top_node->above_median)
+				ra(stack, true);
+			else
+				rra(stack, true);
+		}
+		else if (name == 'b')
+		{
+			if (top_node->above_median)
+				rb(stack, true);
+			else
+				rrb(stack, true);
+		}
 	}
 }
 
