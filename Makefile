@@ -4,6 +4,18 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
 
 SRCS = push_swap.c \
+		src/functions/handle_errors.c \
+		src/functions/init_stacks.c \
+		src/functions/stack_utils.c \
+		src/movements/push.c \
+		src/movements/reverse_rotate.c \
+		src/movements/rotate.c \
+		src/movements/swap.c \
+		src/sort/init_nodes_a.c \
+		src/sort/init_nodes_b.c \
+		src/sort/sort_movements.c \
+		src/sort/sort.c
+		
 
 OBJS = $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 16:39:13 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/11 16:12:09 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/17 17:08:50 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int	error_syntax(char *s)
 {
 	if (!(*s == '+' || *s == '-' || (*s >= '0' && *s <= '9')))
 		return (1);
-	if (*s == '+' || *s == '-' && !(s[1] >= '0' && s[1] <= '9'))
+	if ((*s == '+' || *s == '-') && !(s[1] >= '0' && s[1] <= '9'))
 		return (1);
-	while (++s)
+	while (*++s)
 	{
 		if (!(*s >= '0' && *s <= '9'))
 			return (1);
@@ -36,6 +36,7 @@ int	is_duplicate(t_stack_node *a, int n)
 			return (1);
 		a = a->next;
 	}
+	return (0);
 }
 
 void	free_stack(t_stack_node **stack)

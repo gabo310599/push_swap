@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 13:42:59 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/17 12:37:04 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/17 17:59:50 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ static void min_to_top(t_stack_node **a)
 void	sort_stacks(t_stack_node **a, t_stack_node **b)
 {
 	if (stack_len(*a) > 3 && !is_sorted(*a))
-		pb(b, a, true);
+		pb(a, b, true);
 	if (stack_len(*a) > 3 && !is_sorted(*a))
-		pb(b, a, true);
+		pb(a, b, true);
 	while (stack_len(*a) > 3 && !is_sorted(*a))
 	{
 		init_nodes_a(*a, *b);

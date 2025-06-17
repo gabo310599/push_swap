@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_a.c                                           :+:      :+:    :+:   */
+/*   init_nodes_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 15:18:56 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/13 21:08:50 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/17 17:57:50 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ static void	calculate_push_cost_a(t_stack_node *a, t_stack_node *b)
 	size_b = stack_len(b);
 	while (a)
 	{
+		
 		a->push_cost = a->index;
 		if (!(a->above_median))
 			a->push_cost = (int) size_a - a->index;
@@ -109,6 +110,8 @@ void	set_cheapest_node(t_stack_node *stack)
 void	init_nodes_a(t_stack_node *a, t_stack_node *b)
 {
 	set_node_index(a);
+	if (!b)
+		printf("raios\n");
 	set_node_index(b);
 	set_targets_a(a, b);
 	calculate_push_cost_a(a, b);
