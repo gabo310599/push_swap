@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 16:22:06 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/12 13:56:28 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/16 14:40:36 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,21 @@ t_stack_node	*find_biggest_node(t_stack_node *stack)
 		stack = stack->next;
 	}
 	return (biggest);
+}
+
+t_stack_node	*find_smallest_node(t_stack_node *stack)
+{
+	t_stack_node	*smallest;
+
+	if (!stack)
+		return (NULL);
+	smallest = stack;
+	stack = stack->next;
+	while (stack)
+	{
+		if (smallest->nbr > stack->nbr)
+			smallest = stack;
+		stack = stack->next;
+	}
+	return (smallest);
 }
