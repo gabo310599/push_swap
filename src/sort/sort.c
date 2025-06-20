@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 13:42:59 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/18 19:39:02 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/20 20:42:44 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 	t_stack_node	*cheapest_node;
 
 	cheapest_node = get_cheapest_node(*a);
+	if (!cheapest_node || !cheapest_node->target_node)
+		return ;
 	if (cheapest_node->above_median
 		&& cheapest_node->target_node->above_median)
 		rotate_both(a, b, cheapest_node);
@@ -41,7 +43,7 @@ static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 	pb(a, b, true);
 }
 
-static void min_to_top(t_stack_node **a)
+static void	min_to_top(t_stack_node **a)
 {
 	t_stack_node	*smallest;
 
@@ -53,15 +55,12 @@ static void min_to_top(t_stack_node **a)
 		else
 			rra(a, true);
 	}
-	
 }
 
 void	sort_stacks(t_stack_node **a, t_stack_node **b)
 {
 	if (stack_len(*a) > 3 && !is_sorted(*a))
-		pb(a, b, true);
-	if (stack_len(*a) > 3 && !is_sorted(*a))
-		pb(a, b, true);
+		push_two_out_of_order(a, b);
 	while (stack_len(*a) > 3 && !is_sorted(*a))
 	{
 		init_nodes_a(*a, *b);

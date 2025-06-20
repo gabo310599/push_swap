@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 12:46:46 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/17 12:43:06 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/20 23:53:03 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_stack_node
 //Funciones de manejo de errores
 /***************************************************************************/
 int				error_syntax(char *s);
-void			free_errors(t_stack_node **a);
+void			free_errors(t_stack_node **a, char **split_result);
 void			free_stack(t_stack_node **stack);
 int				is_duplicate(t_stack_node *a, int n);
 
@@ -48,11 +48,13 @@ bool			is_sorted(t_stack_node *stack);
 t_stack_node	*find_biggest_node(t_stack_node *stack);
 size_t			stack_len(t_stack_node *stack);
 t_stack_node	*find_smallest_node(t_stack_node *stack);
+void			start_sorting(t_stack_node *a, t_stack_node *b);
+void			free_split(char **split);
 
 /***************************************************************************/
 //Funciones inicializar de stacks
 /***************************************************************************/
-void			init_stack_a(t_stack_node **a, char **argv);
+int				init_stack_a(t_stack_node **a, char **argv);
 void			set_node_index(t_stack_node *stack);
 void			set_cheapest_node(t_stack_node *stack);
 void			init_nodes_a(t_stack_node *a, t_stack_node *b);
@@ -85,4 +87,5 @@ void			prep_for_push(t_stack_node **stack, t_stack_node *top_node,
 					char name);
 void			sort_three(t_stack_node **a);
 void			sort_stacks(t_stack_node **a, t_stack_node **b);
+void			push_two_out_of_order(t_stack_node **a, t_stack_node **b);
 #endif

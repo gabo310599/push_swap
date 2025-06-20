@@ -14,7 +14,8 @@ SRCS = push_swap.c \
 		src/sort/init_nodes_a.c \
 		src/sort/init_nodes_b.c \
 		src/sort/sort_movements.c \
-		src/sort/sort.c
+		src/sort/sort.c \
+		src/functions/utils.c \
 		
 
 OBJS = $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 15:38:38 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/17 17:02:57 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/21 00:13:53 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@ t_stack_node	*get_cheapest_node(t_stack_node *stack)
 	return (NULL);
 }
 
-static void	append_node(t_stack_node **stack, int n)
+static int	append_node(t_stack_node **stack, int n)
 {
 	t_stack_node	*node;
 	t_stack_node	*last_node;
 
 	if (!stack)
-		return ;
+		return (1);
 	last_node = NULL;
 	node = malloc(sizeof(t_stack_node));
 	if (!node)
-		return ;
+		return (1);
 	node->next = NULL;
 	node->nbr = n;
 	node->cheapest = 0;
@@ -50,6 +50,7 @@ static void	append_node(t_stack_node **stack, int n)
 		last_node->next = node;
 		node->prev = last_node;
 	}
+	return (0);
 }
 
 void	prep_for_push(t_stack_node **stack, t_stack_node *top_node, char name)
@@ -73,7 +74,7 @@ void	prep_for_push(t_stack_node **stack, t_stack_node *top_node, char name)
 	}
 }
 
-void	init_stack_a(t_stack_node **a, char **argv)
+int	init_stack_a(t_stack_node **a, char **argv)
 {
 	long	n;
 	int		i;
@@ -82,13 +83,15 @@ void	init_stack_a(t_stack_node **a, char **argv)
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
-			free_errors(a);
+			return (1);
 		n = ft_atol(argv[i]);
-		if (n > INT_MAX || n < INT16_MIN)
-			free_errors(a);
-		if (is_duplicate(*a, (int) n))
-			free_errors(a);
-		append_node(a, (int) n);
+		if (n > INT_MAX || n < INT_MIN)
+			return (1);
+		if (is_duplicate(*a, (int)n))
+			return (1);
+		if (append_node(a, (int)n))
+			return (1);
 		i++;
 	}
+	return (0);
 }

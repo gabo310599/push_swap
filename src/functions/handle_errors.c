@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 16:39:13 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/17 17:08:50 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/20 23:48:20 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,10 @@ void	free_stack(t_stack_node **stack)
 	*stack = NULL;
 }
 
-void	free_errors(t_stack_node **a)
+void	free_errors(t_stack_node **a, char **split_result)
 {
 	free_stack(a);
+	free_split(split_result);
 	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }

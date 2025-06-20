@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 15:18:56 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/18 19:34:14 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/20 23:10:39 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	set_node_index(t_stack_node *stack)
 	int	i;
 	int	median;
 
+	if (!stack)
+		return ;
 	i = 0;
 	median = stack_len(stack) / 2;
 	while (stack)
@@ -59,23 +61,28 @@ static void	set_targets_a(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-static void	calculate_push_cost_a(t_stack_node *a, t_stack_node *b)
+static void	calculate_push_cost_a(t_stack_node *a, size_t size_a, size_t size_b)
 {
-	size_t	size_a;
-	size_t	size_b;
+	int		cost_a;
+	int		cost_b;
 
-	size_a = stack_len(a);
-	size_b = stack_len(b);
 	while (a)
 	{
-		
-		a->push_cost = a->index;
-		if (!(a->above_median))
-			a->push_cost = (int) size_a - a->index;
-		if (a->target_node->above_median)
-			a->push_cost += a->target_node->index;
+		cost_a = a->index;
+		cost_b = a->target_node->index;
+		if (!a->above_median)
+			cost_a = (int)size_a - a->index;
+		if (!a->target_node->above_median)
+			cost_b = (int)size_b - a->target_node->index;
+		if (a->above_median == a->target_node->above_median)
+		{
+			if (cost_a > cost_b)
+				a->push_cost = cost_a;
+			else
+				a->push_cost = cost_b;
+		}
 		else
-			a->push_cost += (int) size_b - (a->target_node->index);
+			a->push_cost = cost_a + cost_b;
 		a = a->next;
 	}
 }
@@ -112,6 +119,6 @@ void	init_nodes_a(t_stack_node *a, t_stack_node *b)
 	set_node_index(a);
 	set_node_index(b);
 	set_targets_a(a, b);
-	calculate_push_cost_a(a, b);
-	set_cheapest_node(a);	
+	calculate_push_cost_a(a, stack_len(a), stack_len(b));
+	set_cheapest_node(a);
 }
