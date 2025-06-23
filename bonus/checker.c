@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/08 17:49:41 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/23 19:16:59 by gojeda           ###   ########.fr       */
+/*   Created: 2025/06/23 16:00:57 by gojeda            #+#    #+#             */
+/*   Updated: 2025/06/23 22:46:16 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "checker.h"
 
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
 	char			**split_result;
+	char			**instructions;
 
 	a = NULL;
 	b = NULL;
@@ -27,12 +28,12 @@ int	main(int argc, char **argv)
 	{
 		split_result = ft_split(argv[1], ' ');
 		init_stack_a(&a, split_result, true);
+		free_split(split_result);
 	}
 	else if (argc > 2)
 		init_stack_a(&a, argv + 1, false);
-	start_sorting(&a, &b);
-	free_split(split_result);
-	free_stack(&a);
-	free_stack(&b);
+	instructions = control_stdin();
+	check_instructions(instructions, &a, &b);
+	free_everything(&a, &b, instructions);
 	return (0);
 }

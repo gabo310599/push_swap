@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 20:47:36 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/11 21:46:07 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/23 22:05:12 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	pa(t_stack_node **a, t_stack_node **b, bool msg)
 		ft_printf("pa\n");
 }
 
-void	pb(t_stack_node **a, t_stack_node **b, bool msg)
+void	pb(t_stack_node **b, t_stack_node **a, bool msg)
 {
 	push(b, a);
 	if (msg)

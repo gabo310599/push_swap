@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 13:42:59 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/20 20:42:44 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/23 22:06:12 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 		rev_rotate_both(a, b, cheapest_node);
 	prep_for_push(a, cheapest_node, 'a');
 	prep_for_push(b, cheapest_node->target_node, 'b');
-	pb(a, b, true);
+	pb(b, a, true);
 }
 
 static void	min_to_top(t_stack_node **a)

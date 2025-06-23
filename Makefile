@@ -22,6 +22,8 @@ OBJS = $(SRCS:.c=.o)
 
 INCLUDES = -I include -I libft
 LIBFT = libft/libft.a
+CHECKER = bonus/checker
+INCLUDES_BONUS = -I include -I bonus
 
 #-----------------------------------------------------------
 # Principal
@@ -41,16 +43,27 @@ $(NAME): $(OBJS)
 	@echo "🔧 Compilado: $<"
 
 #-----------------------------------------------------------
-# Compilar archivos fuente
+# Compilar archivos fuente bonus
+#-----------------------------------------------------------
+bonus: $(OBJS)
+	@$(MAKE) -C libft > /dev/null
+	@$(MAKE) -C bonus > /dev/null
+	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJS) $(LIBFT) -o $(NAME)
+	@echo "✅ Proyecto compilado con bonus correctamente."
+
+#-----------------------------------------------------------
+# Limpiar archivos fuente
 #-----------------------------------------------------------
 clean:
 	@rm -f $(OBJS)
 	@$(MAKE) -C libft clean > /dev/null
+	@$(MAKE) -C bonus clean > /dev/null
 	@echo "🧹 Archivos objeto y temporales eliminados."
 
 fclean: clean
 	@rm -f $(NAME)
 	@$(MAKE) -C libft fclean > /dev/null
+	@$(MAKE) -C bonus fclean > /dev/null
 	@echo "🧼 Todo limpio."
 
 re: fclean all

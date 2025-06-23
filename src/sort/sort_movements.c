@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 21:56:11 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/20 20:49:23 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/23 22:06:05 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	push_two_out_of_order(t_stack_node **a, t_stack_node **b)
 	{
 		if (is_out_of_order(*a))
 		{
-			pb(a, b, true);
+			pb(b, a, true);
 			pushed++;
 		}
 		else

@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 12:46:46 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/23 14:08:46 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/23 22:05:26 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void			sa(t_stack_node **a, bool msg);
 void			sb(t_stack_node **b, bool msg);
 void			ss(t_stack_node **a, t_stack_node **b, bool msg);
 void			pa(t_stack_node **a, t_stack_node **b, bool msg);
-void			pb(t_stack_node **a, t_stack_node **b, bool msg);
+void			pb(t_stack_node **b, t_stack_node **a, bool msg);
 void			ra(t_stack_node **a, bool msg);
 void			rb(t_stack_node **b, bool msg);
 void			rr(t_stack_node **a, t_stack_node **b, bool msg);
