@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 19:19:24 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/23 22:10:37 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/23 23:28:06 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,8 @@ void	free_instructions(char **instructions)
 	free(instructions);
 }
 
-bool	process_instruction(char *instruction, t_stack_node **a, t_stack_node **b)
+bool	process_instruction(char *instruction, t_stack_node **a,
+			t_stack_node **b)
 {
 	if (ft_strncmp(instruction, "sa", 2) == 0 && ft_strlen(instruction) == 2)
 		return (sa(a, false), true);
