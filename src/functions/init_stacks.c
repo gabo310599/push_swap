@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 15:38:38 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/21 00:13:53 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/23 14:08:52 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	prep_for_push(t_stack_node **stack, t_stack_node *top_node, char name)
 	}
 }
 
-int	init_stack_a(t_stack_node **a, char **argv)
+void	init_stack_a(t_stack_node **a, char **argv, bool type)
 {
 	long	n;
 	int		i;
@@ -83,15 +83,14 @@ int	init_stack_a(t_stack_node **a, char **argv)
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
-			return (1);
+			free_errors(a, argv, type);
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
-			return (1);
+			free_errors(a, argv, type);
 		if (is_duplicate(*a, (int)n))
-			return (1);
+			free_errors(a, argv, type);
 		if (append_node(a, (int)n))
-			return (1);
+			free_errors(a, argv, type);
 		i++;
 	}
-	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 12:46:46 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/23 13:06:01 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/23 14:08:46 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_stack_node
 //Funciones de manejo de errores
 /***************************************************************************/
 int				error_syntax(char *s);
-void			free_errors(t_stack_node **a, char **split_result);
+void			free_errors(t_stack_node **a, char **split_result, bool type);
 void			free_stack(t_stack_node **stack);
 int				is_duplicate(t_stack_node *a, int n);
 
@@ -54,7 +54,7 @@ void			free_split(char **split);
 /***************************************************************************/
 //Funciones inicializar de stacks
 /***************************************************************************/
-int				init_stack_a(t_stack_node **a, char **argv);
+void			init_stack_a(t_stack_node **a, char **argv, bool type);
 void			set_node_index(t_stack_node *stack);
 void			set_cheapest_node(t_stack_node *stack);
 void			init_nodes_a(t_stack_node *a, t_stack_node *b);
