@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 12:46:46 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/20 23:53:03 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/23 13:06:01 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ bool			is_sorted(t_stack_node *stack);
 t_stack_node	*find_biggest_node(t_stack_node *stack);
 size_t			stack_len(t_stack_node *stack);
 t_stack_node	*find_smallest_node(t_stack_node *stack);
-void			start_sorting(t_stack_node *a, t_stack_node *b);
+void			start_sorting(t_stack_node **a, t_stack_node **b);
 void			free_split(char **split);
 
 /***************************************************************************/

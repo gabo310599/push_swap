@@ -6,22 +6,22 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 21:27:01 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/20 23:26:42 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/23 13:06:34 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	start_sorting(t_stack_node *a, t_stack_node *b)
+void	start_sorting(t_stack_node **a, t_stack_node **b)
 {
-	if (!is_sorted(a))
+	if (!is_sorted(*a))
 	{
-		if (stack_len(a) == 2)
-			sa(&a, true);
-		else if (stack_len(a) == 3)
-			sort_three(&a);
+		if (stack_len(*a) == 2)
+			sa(a, true);
+		else if (stack_len(*a) == 3)
+			sort_three(a);
 		else
-			sort_stacks(&a, &b);
+			sort_stacks(a, b);
 	}
 }
 

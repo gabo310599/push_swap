@@ -6,7 +6,7 @@
 /*   By: gojeda <gojeda@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 16:39:13 by gojeda            #+#    #+#             */
-/*   Updated: 2025/06/20 23:48:20 by gojeda           ###   ########.fr       */
+/*   Updated: 2025/06/23 12:46:56 by gojeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	free_stack(t_stack_node **stack)
 	while (current)
 	{
 		tmp = current->next;
-		current->nbr = 0;
 		free(current);
 		current = tmp;
 	}
